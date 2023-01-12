@@ -1,0 +1,120 @@
+@prefix : <http://teaching.gcdh.de/project/Dumuzi_Lament#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://teaching.gcdh.de/project/Dumuzi_Lament> .
+
+<http://teaching.gcdh.de/project/Dumuzi_Lament> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/lebtNichtIn
+<http://teaching.gcdh.de/lebtNichtIn> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                      rdfs:range <http://teaching.gcdh.de/Ort> ;
+                                      rdfs:label "lebtNichtIn"@de ;
+                                      <http://www.w3.org/2004/02/skos/core#altLabel> "doesNotLiveIn"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "Geschlecht"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "gender"@en .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain owl:Thing ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "WikidataID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Gebäude
+<http://teaching.gcdh.de/Gebäude> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                  rdfs:label "Gebäude"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "building"@en .
+
+
+###  http://teaching.gcdh.de/Haus
+<http://teaching.gcdh.de/Haus> rdf:type owl:Class ;
+                               rdfs:subClassOf <http://teaching.gcdh.de/Gebäude> ;
+                               rdfs:label "Haus"@de ;
+                               <http://www.w3.org/2004/02/skos/core#altLabel> "house"@en .
+
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                              rdfs:subClassOf owl:Thing ;
+                              rdfs:label "Ort"@de ;
+                              <http://www.w3.org/2004/02/skos/core#altLabel> "location"@en .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:label "Person"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "person"@en .
+
+
+###  http://teaching.gcdh.de/Stadt
+<http://teaching.gcdh.de/Stadt> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                rdfs:label "Stadt"@de ;
+                                <http://www.w3.org/2004/02/skos/core#altLabel> "city"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Dumuzi
+<http://teaching.gcdh.de/Dumuzi> rdf:type owl:NamedIndividual ,
+                                          <http://teaching.gcdh.de/Person> ;
+                                 <http://teaching.gcdh.de/lebtNichtIn> <http://teaching.gcdh.de/Haus_individual> ,
+                                                                       <http://teaching.gcdh.de/Stadt_individual> ;
+                                 <http://teaching.gcdh.de/Geschlecht> "male"@en ,
+                                                                      "männlich"@de ;
+                                 <http://teaching.gcdh.de/WikidataID> "Q549619"^^xsd:string ;
+                                 rdfs:label "Dumuzi" .
+
+
+###  http://teaching.gcdh.de/Haus_individual
+<http://teaching.gcdh.de/Haus_individual> rdf:type owl:NamedIndividual ,
+                                                   <http://teaching.gcdh.de/Haus> ;
+                                          rdfs:label "Haus"@de ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "house"@en .
+
+
+###  http://teaching.gcdh.de/Stadt_individual
+<http://teaching.gcdh.de/Stadt_individual> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Stadt> ;
+                                           rdfs:label "Stadt"@de ;
+                                           <http://www.w3.org/2004/02/skos/core#altLabel> "city"@en .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi

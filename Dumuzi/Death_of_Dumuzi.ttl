@@ -1,0 +1,431 @@
+@prefix : <http://teaching.gcdh.de/project/Death_of_Dumuzi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://teaching.gcdh.de/project/Death_of_Dumuzi> .
+
+<http://teaching.gcdh.de/project/Death_of_Dumuzi> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/beraten
+<http://teaching.gcdh.de/beraten> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                  rdfs:domain owl:Thing ;
+                                  rdfs:range owl:Thing ;
+                                  rdfs:label "beraten"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "advise"@en .
+
+
+###  http://teaching.gcdh.de/hatBezugZu
+<http://teaching.gcdh.de/hatBezugZu> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://teaching.gcdh.de/hatZugehörigkeit> ;
+                                     rdfs:domain <http://teaching.gcdh.de/Handlung> ,
+                                                 <http://teaching.gcdh.de/Ort> ,
+                                                 <http://teaching.gcdh.de/Person> ;
+                                     rdfs:range <http://teaching.gcdh.de/Handlung> ,
+                                                <http://teaching.gcdh.de/Ort> ,
+                                                <http://teaching.gcdh.de/Person> ;
+                                     rdfs:label "hatBezugZu"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "isRelatedTo"@en .
+
+
+###  http://teaching.gcdh.de/hatNicht
+<http://teaching.gcdh.de/hatNicht> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                   rdfs:domain <http://teaching.gcdh.de/Ort> ;
+                                   rdfs:range <http://teaching.gcdh.de/Handlung> ,
+                                              <http://teaching.gcdh.de/Nahrungsmittel> ;
+                                   rdfs:label "hatNicht"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "doesNotHave"@en .
+
+
+###  http://teaching.gcdh.de/hatZugehörigkeit
+<http://teaching.gcdh.de/hatZugehörigkeit> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Handlung> ,
+                                                       <http://teaching.gcdh.de/Ort> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Handlung> ,
+                                                      <http://teaching.gcdh.de/Ort> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           rdfs:label "hatZugehörigkeit"@de ;
+                                           <http://www.w3.org/2004/02/skos/core#altLabel> "hasAffiliation"@en .
+
+
+###  http://teaching.gcdh.de/istBeraterVon
+<http://teaching.gcdh.de/istBeraterVon> rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf <http://teaching.gcdh.de/beraten> ;
+                                        rdfs:domain <http://teaching.gcdh.de/Berater> ;
+                                        rdfs:range owl:Thing ;
+                                        rdfs:label "istBeraterVon"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "isAdviserOf"@en .
+
+
+###  http://teaching.gcdh.de/kennen
+<http://teaching.gcdh.de/kennen> rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                 rdfs:domain <http://teaching.gcdh.de/Handlung> ,
+                                             <http://teaching.gcdh.de/Person> ;
+                                 rdfs:range <http://teaching.gcdh.de/Handlung> ,
+                                            <http://teaching.gcdh.de/Person> ;
+                                 rdfs:label "kennen"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "know"@en .
+
+
+###  http://teaching.gcdh.de/kenntNicht
+<http://teaching.gcdh.de/kenntNicht> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://teaching.gcdh.de/kennen> ;
+                                     rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                     rdfs:range <http://teaching.gcdh.de/Handlung> ,
+                                                <http://teaching.gcdh.de/Person> ;
+                                     rdfs:label "kennt"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "knows"@en .
+
+
+###  http://teaching.gcdh.de/verdunkeln
+<http://teaching.gcdh.de/verdunkeln> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     rdfs:domain <http://teaching.gcdh.de/Körperflüssigkeit> ,
+                                                 <http://teaching.gcdh.de/Ort> ;
+                                     rdfs:range <http://teaching.gcdh.de/Körperflüssigkeit> ,
+                                                <http://teaching.gcdh.de/Ort> ;
+                                     rdfs:label "verdunkeln"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "darken"@en .
+
+
+###  http://teaching.gcdh.de/verdunkelt
+<http://teaching.gcdh.de/verdunkelt> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://teaching.gcdh.de/verdunkeln> ;
+                                     rdfs:domain <http://teaching.gcdh.de/Körperflüssigkeit> ;
+                                     rdfs:range <http://teaching.gcdh.de/Ort> ;
+                                     rdfs:label "verdunkelt"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "darkens"@en .
+
+
+###  http://teaching.gcdh.de/wirdBeratenDurch
+<http://teaching.gcdh.de/wirdBeratenDurch> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/beraten> ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range <http://teaching.gcdh.de/Berater> ;
+                                           rdfs:label "wirdBeratenDurch"@de ;
+                                           <http://www.w3.org/2004/02/skos/core#altLabel> "isAdvisedBy"@en .
+
+
+###  http://teaching.gcdh.de/wirdGekanntVon
+<http://teaching.gcdh.de/wirdGekanntVon> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <http://teaching.gcdh.de/kennen> ;
+                                         rdfs:domain <http://teaching.gcdh.de/Handlung> ,
+                                                     <http://teaching.gcdh.de/Person> ;
+                                         rdfs:range <http://teaching.gcdh.de/Person> ;
+                                         rdfs:label "wirdGekanntVon"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "isKnownBy"@en .
+
+
+###  http://teaching.gcdh.de/wirdVerdunkeltDurch
+<http://teaching.gcdh.de/wirdVerdunkeltDurch> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf <http://teaching.gcdh.de/verdunkeln> ;
+                                              rdfs:domain <http://teaching.gcdh.de/Ort> ;
+                                              rdfs:range <http://teaching.gcdh.de/Körperflüssigkeit> ;
+                                              rdfs:label "wirdVerdunkeltDurch"@de ;
+                                              <http://www.w3.org/2004/02/skos/core#altLabel> "darkenedBy"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/Attribut
+<http://teaching.gcdh.de/Attribut> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf owl:topDataProperty ;
+                                   rdfs:domain owl:Thing ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "Attribut"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "attribute"@en .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain owl:Thing ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "WikidataID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Berater
+<http://teaching.gcdh.de/Berater> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                  rdfs:label "Berater"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "advisor"@en .
+
+
+###  http://teaching.gcdh.de/Ehefrau
+<http://teaching.gcdh.de/Ehefrau> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Ehepartner> ;
+                                  rdfs:label "Ehefrau"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "wife"@en .
+
+
+###  http://teaching.gcdh.de/Ehepartner
+<http://teaching.gcdh.de/Ehepartner> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                     rdfs:label "Ehepartner"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "spouse"@en .
+
+
+###  http://teaching.gcdh.de/Essen
+<http://teaching.gcdh.de/Essen> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://teaching.gcdh.de/Nahrungsmittel> ;
+                                rdfs:label "Essen"@de ;
+                                <http://www.w3.org/2004/02/skos/core#altLabel> "food"@en .
+
+
+###  http://teaching.gcdh.de/Geschwisterteil
+<http://teaching.gcdh.de/Geschwisterteil> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                          rdfs:label "Geschwisterteil"@de ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "sibling"@en .
+
+
+###  http://teaching.gcdh.de/Handlung
+<http://teaching.gcdh.de/Handlung> rdf:type owl:Class ;
+                                   rdfs:subClassOf owl:Thing ;
+                                   rdfs:label "Handlung"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "action"@en .
+
+
+###  http://teaching.gcdh.de/Körper
+<http://teaching.gcdh.de/Körper> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:label "Körper"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "body"@en .
+
+
+###  http://teaching.gcdh.de/Körperflüssigkeit
+<http://teaching.gcdh.de/Körperflüssigkeit> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://teaching.gcdh.de/Körper> ;
+                                            rdfs:label "Körperflüssigkeit"@de ;
+                                            <http://www.w3.org/2004/02/skos/core#altLabel> "body fluid"@en .
+
+
+###  http://teaching.gcdh.de/Mythologischer_Ort
+<http://teaching.gcdh.de/Mythologischer_Ort> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                             rdfs:label "Mythischer Ort"@de ;
+                                             <http://www.w3.org/2004/02/skos/core#altLabel> "mythical location"@en .
+
+
+###  http://teaching.gcdh.de/Nacht
+<http://teaching.gcdh.de/Nacht> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://teaching.gcdh.de/Tageszeit> ;
+                                rdfs:label "Nacht"@de ;
+                                <http://www.w3.org/2004/02/skos/core#altLabel> "night"@en .
+
+
+###  http://teaching.gcdh.de/Nahrungsmittel
+<http://teaching.gcdh.de/Nahrungsmittel> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         rdfs:label "Nahrungsmittel"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "food and drink"@en .
+
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                              rdfs:subClassOf owl:Thing ;
+                              rdfs:label "Ort"@de ;
+                              <http://www.w3.org/2004/02/skos/core#altLabel> "location"@en .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:label "Person"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "person"@en .
+
+
+###  http://teaching.gcdh.de/Priester
+<http://teaching.gcdh.de/Priester> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                   rdfs:label "Priester"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "priest"@en .
+
+
+###  http://teaching.gcdh.de/Reinigungspriester
+<http://teaching.gcdh.de/Reinigungspriester> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://teaching.gcdh.de/Priester> ;
+                                             rdfs:label "Reinigungspriester"@de ;
+                                             <http://www.w3.org/2004/02/skos/core#altLabel> "purification priest"@en .
+
+
+###  http://teaching.gcdh.de/Rettung
+<http://teaching.gcdh.de/Rettung> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Handlung> ;
+                                  rdfs:label "Rettung"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "salvation"@en .
+
+
+###  http://teaching.gcdh.de/Ritual
+<http://teaching.gcdh.de/Ritual> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://teaching.gcdh.de/Handlung> ;
+                                 rdfs:label "Ritual"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "ritual"@en .
+
+
+###  http://teaching.gcdh.de/Ritualspruch
+<http://teaching.gcdh.de/Ritualspruch> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://teaching.gcdh.de/Ritual> ;
+                                       rdfs:label "Ritualspruch"@de ;
+                                       <http://www.w3.org/2004/02/skos/core#altLabel> "ritual invocation"@en .
+
+
+###  http://teaching.gcdh.de/Schwester
+<http://teaching.gcdh.de/Schwester> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://teaching.gcdh.de/Geschwisterteil> ;
+                                    rdfs:label "Schwester"@de ;
+                                    <http://www.w3.org/2004/02/skos/core#altLabel> "sister"@en .
+
+
+###  http://teaching.gcdh.de/Tag
+<http://teaching.gcdh.de/Tag> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://teaching.gcdh.de/Tageszeit> ;
+                              rdfs:label "Tag"@de ;
+                              <http://www.w3.org/2004/02/skos/core#altLabel> "day"@en .
+
+
+###  http://teaching.gcdh.de/Tageszeit
+<http://teaching.gcdh.de/Tageszeit> rdf:type owl:Class ;
+                                    rdfs:subClassOf owl:Thing ;
+                                    rdfs:label "Tageszeit"@de ;
+                                    <http://www.w3.org/2004/02/skos/core#altLabel> "time of day"@en .
+
+
+###  http://teaching.gcdh.de/Trinken
+<http://teaching.gcdh.de/Trinken> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Nahrungsmittel> ;
+                                  rdfs:label "Trinken"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "drink"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Arali
+<http://teaching.gcdh.de/Arali> rdf:type owl:NamedIndividual ,
+                                         <http://teaching.gcdh.de/Mythologischer_Ort> ;
+                                <http://teaching.gcdh.de/hatBezugZu> <http://teaching.gcdh.de/Ritualsprüche_von_Arali> ;
+                                <http://teaching.gcdh.de/WikidataID> "Q784094"^^xsd:string ;
+                                rdfs:label "Arali" .
+
+
+###  http://teaching.gcdh.de/Blut
+<http://teaching.gcdh.de/Blut> rdf:type owl:NamedIndividual ,
+                                        <http://teaching.gcdh.de/Körperflüssigkeit> ;
+                               <http://teaching.gcdh.de/verdunkelt> <http://teaching.gcdh.de/Ort_der_Schicksalsbestimmung> ;
+                               rdfs:label "Blut"@de ;
+                               <http://www.w3.org/2004/02/skos/core#altLabel> "blood"@en .
+
+
+###  http://teaching.gcdh.de/Ort_der_Schicksalsbestimmung
+<http://teaching.gcdh.de/Ort_der_Schicksalsbestimmung> rdf:type owl:NamedIndividual ,
+                                                                <http://teaching.gcdh.de/Mythologischer_Ort> ;
+                                                       <http://teaching.gcdh.de/hatNicht> <http://teaching.gcdh.de/Rettung_durch_Heilkunst> ;
+                                                       <http://teaching.gcdh.de/wirdVerdunkeltDurch> <http://teaching.gcdh.de/Blut> ;
+                                                       rdfs:label "Ort der Schicksalsbestimmung"@de ;
+                                                       <http://www.w3.org/2004/02/skos/core#altLabel> "place where fate is decreed"@en .
+
+
+###  http://teaching.gcdh.de/Rettung_durch_Heilkunst
+<http://teaching.gcdh.de/Rettung_durch_Heilkunst> rdf:type owl:NamedIndividual ,
+                                                           <http://teaching.gcdh.de/Rettung> ;
+                                                  rdfs:label "Rettung durch Heilkunst"@de ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "salvation through healing"@en .
+
+
+###  http://teaching.gcdh.de/Ritualsprüche_auf_Erden
+<http://teaching.gcdh.de/Ritualsprüche_auf_Erden> rdf:type owl:NamedIndividual ,
+                                                           <http://teaching.gcdh.de/Ritualspruch> ;
+                                                  <http://teaching.gcdh.de/wirdGekanntVon> <http://teaching.gcdh.de/Sieben_Ritualkundige> ;
+                                                  rdfs:label "Ritualsprüche auf Erden"@de ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "witchcraft on earth"@en .
+
+
+###  http://teaching.gcdh.de/Ritualsprüche_im_Himmel
+<http://teaching.gcdh.de/Ritualsprüche_im_Himmel> rdf:type owl:NamedIndividual ,
+                                                           <http://teaching.gcdh.de/Ritualspruch> ;
+                                                  <http://teaching.gcdh.de/wirdGekanntVon> <http://teaching.gcdh.de/Sieben_Ritualkundige> ;
+                                                  rdfs:label "Ritualsprüche im Himmel"@de ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "witchcraft in heaven"@en .
+
+
+###  http://teaching.gcdh.de/Ritualsprüche_von_Arali
+<http://teaching.gcdh.de/Ritualsprüche_von_Arali> rdf:type owl:NamedIndividual ,
+                                                           <http://teaching.gcdh.de/Ritualspruch> ;
+                                                  <http://teaching.gcdh.de/hatBezugZu> <http://teaching.gcdh.de/Arali> ;
+                                                  <http://teaching.gcdh.de/wirdGekanntVon> <http://teaching.gcdh.de/Sieben_Ritualkundige> ;
+                                                  rdfs:label "Ritualsprüche von Arali"@de ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "witchcraft of Arali"@en .
+
+
+###  http://teaching.gcdh.de/Sieben_Ritualkundige
+<http://teaching.gcdh.de/Sieben_Ritualkundige> rdf:type owl:NamedIndividual ,
+                                                        <http://teaching.gcdh.de/Berater> ,
+                                                        <http://teaching.gcdh.de/Reinigungspriester> ,
+                                                        <http://teaching.gcdh.de/Schwester> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://teaching.gcdh.de/istBeraterVon> ;
+                                                          owl:someValuesFrom <http://teaching.gcdh.de/Nacht>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://teaching.gcdh.de/istBeraterVon> ;
+                                                          owl:someValuesFrom <http://teaching.gcdh.de/Tag>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://teaching.gcdh.de/kenntNicht> ;
+                                                          owl:someValuesFrom <http://teaching.gcdh.de/Ehefrau>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://teaching.gcdh.de/kenntNicht> ;
+                                                          owl:someValuesFrom <http://teaching.gcdh.de/Schwester>
+                                                        ] ;
+                                               <http://teaching.gcdh.de/kenntNicht> <http://teaching.gcdh.de/Ritualsprüche_auf_Erden> ,
+                                                                                    <http://teaching.gcdh.de/Ritualsprüche_im_Himmel> ,
+                                                                                    <http://teaching.gcdh.de/Ritualsprüche_von_Arali> ;
+                                               <http://teaching.gcdh.de/Attribut> "divine"@en ,
+                                                                                  "göttlich"@de ;
+                                               rdfs:label "Sieben Ritualkundige"@de ;
+                                               <http://www.w3.org/2004/02/skos/core#altLabel> "seven ritual experts"@en .
+
+
+###  http://teaching.gcdh.de/Unterwelt
+<http://teaching.gcdh.de/Unterwelt> rdf:type owl:NamedIndividual ,
+                                             <http://teaching.gcdh.de/Mythologischer_Ort> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://teaching.gcdh.de/hatNicht> ;
+                                               owl:someValuesFrom <http://teaching.gcdh.de/Essen>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://teaching.gcdh.de/hatNicht> ;
+                                               owl:someValuesFrom <http://teaching.gcdh.de/Trinken>
+                                             ] ;
+                                    rdfs:label "Unterwelt"@de ;
+                                    <http://www.w3.org/2004/02/skos/core#altLabel> "netherworld, place of no return"@en .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi

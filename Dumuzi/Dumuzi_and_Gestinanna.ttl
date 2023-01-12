@@ -1,0 +1,223 @@
+@prefix : <http://teaching.gcdh.de/project/Dumuzi_and_Gestinanna#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://teaching.gcdh.de/project/Dumuzi_and_Gestinanna> .
+
+<http://teaching.gcdh.de/project/Dumuzi_and_Gestinanna> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/hatEmotionaleBeziehung
+<http://teaching.gcdh.de/hatEmotionaleBeziehung> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                                 rdfs:range <http://teaching.gcdh.de/Person> ;
+                                                 rdfs:label "hatEmotionaleBeziehung"@de ;
+                                                 <http://www.w3.org/2004/02/skos/core#altLabel> "hasEmotionalRelationship"@en .
+
+
+###  http://teaching.gcdh.de/hatNicht
+<http://teaching.gcdh.de/hatNicht> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                   rdfs:domain <http://teaching.gcdh.de/Haus> ,
+                                               <http://teaching.gcdh.de/Ort> ,
+                                               <http://teaching.gcdh.de/Personengruppe> ;
+                                   rdfs:range <http://teaching.gcdh.de/Ort> ,
+                                              <http://teaching.gcdh.de/Personengruppe> ;
+                                   rdfs:label "hatNicht"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "doesNotHave"@en .
+
+
+###  http://teaching.gcdh.de/istFreundVon
+<http://teaching.gcdh.de/istFreundVon> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf <http://teaching.gcdh.de/hatEmotionaleBeziehung> ;
+                                       rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                       rdfs:range <http://teaching.gcdh.de/Person> ;
+                                       rdfs:label "istFreundVon"@de ;
+                                       <http://www.w3.org/2004/02/skos/core#altLabel> "isFriendOf"@en .
+
+
+###  http://teaching.gcdh.de/kennen
+<http://teaching.gcdh.de/kennen> rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                 rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                             <http://teaching.gcdh.de/Person> ;
+                                 rdfs:range <http://teaching.gcdh.de/Verhalten> ;
+                                 rdfs:label "kennen"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "know"@en .
+
+
+###  http://teaching.gcdh.de/kenntNicht
+<http://teaching.gcdh.de/kenntNicht> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://teaching.gcdh.de/kennen> ;
+                                     rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                                 <http://teaching.gcdh.de/Person> ;
+                                     rdfs:range <http://teaching.gcdh.de/Verhalten> ;
+                                     rdfs:label "kenntNicht"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "doesNotKnow"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/Attribut
+<http://teaching.gcdh.de/Attribut> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf owl:topDataProperty ;
+                                   rdfs:domain owl:Thing ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "Attribut"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "attribute"@en .
+
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "Geschlecht"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "gender"@en .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain owl:Thing ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "WikidataID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Boshaftigkeit
+<http://teaching.gcdh.de/Boshaftigkeit> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://teaching.gcdh.de/Verhalten> ;
+                                        rdfs:label "Boshaftigkeit"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "viciousness"@en .
+
+
+###  http://teaching.gcdh.de/Familie
+<http://teaching.gcdh.de/Familie> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Personengruppe> ;
+                                  rdfs:label "Familie"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "family"@en .
+
+
+###  http://teaching.gcdh.de/Freundlichkeit
+<http://teaching.gcdh.de/Freundlichkeit> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://teaching.gcdh.de/Verhalten> ;
+                                         rdfs:label "Freundlichkeit"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "friendliness"@en .
+
+
+###  http://teaching.gcdh.de/Gebäude
+<http://teaching.gcdh.de/Gebäude> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                  rdfs:label "Gebäude"@de ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "building"@en .
+
+
+###  http://teaching.gcdh.de/Haus
+<http://teaching.gcdh.de/Haus> rdf:type owl:Class ;
+                               rdfs:subClassOf <http://teaching.gcdh.de/Gebäude> ;
+                               rdfs:label "Haus"@de ;
+                               <http://www.w3.org/2004/02/skos/core#altLabel> "house"@en .
+
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                              rdfs:subClassOf owl:Thing ;
+                              rdfs:label "Ort"@de ;
+                              <http://www.w3.org/2004/02/skos/core#altLabel> "location"@en .
+
+
+###  http://teaching.gcdh.de/Personengruppe
+<http://teaching.gcdh.de/Personengruppe> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         rdfs:label "Personengruppe"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "group of people"@en .
+
+
+###  http://teaching.gcdh.de/Verhalten
+<http://teaching.gcdh.de/Verhalten> rdf:type owl:Class ;
+                                    rdfs:subClassOf owl:Thing ;
+                                    rdfs:label "Verhalten"@de ;
+                                    <http://www.w3.org/2004/02/skos/core#altLabel> "behaviour"@en .
+
+
+###  http://teaching.gcdh.de/Freund
+<http://teaching.gcdh.de/Freund> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                        rdfs:label "Freund"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "friend"@en .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                        rdfs:label "Person"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "person"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Dumuzi
+<http://teaching.gcdh.de/Dumuzi> rdf:type owl:NamedIndividual ,
+                                          <http://teaching.gcdh.de/Freund> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://teaching.gcdh.de/hatNicht> ;
+                                            owl:someValuesFrom <http://teaching.gcdh.de/Haus>
+                                          ] ;
+                                 <http://teaching.gcdh.de/istFreundVon> <http://teaching.gcdh.de/Utu> ;
+                                 <http://teaching.gcdh.de/Geschlecht> "male"@en ,
+                                                                      "männlich"@de ;
+                                 <http://teaching.gcdh.de/WikidataID> "Q549619"^^xsd:string ;
+                                 rdfs:label "Dumuzi" .
+
+
+###  http://teaching.gcdh.de/Dämon
+<http://teaching.gcdh.de/Dämon> rdf:type owl:NamedIndividual ,
+                                         <http://teaching.gcdh.de/Person> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://teaching.gcdh.de/hatNicht> ;
+                                           owl:someValuesFrom <http://teaching.gcdh.de/Familie>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://teaching.gcdh.de/kenntNicht> ;
+                                           owl:someValuesFrom <http://teaching.gcdh.de/Boshaftigkeit>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://teaching.gcdh.de/kenntNicht> ;
+                                           owl:someValuesFrom <http://teaching.gcdh.de/Freundlichkeit>
+                                         ] ;
+                                <http://teaching.gcdh.de/Attribut> "never friendly"^^xsd:string ,
+                                                                   "nie freundlich"^^xsd:string ;
+                                rdfs:label "Dämon" ;
+                                <http://www.w3.org/2004/02/skos/core#altLabel> "demon"^^xsd:string .
+
+
+###  http://teaching.gcdh.de/Utu
+<http://teaching.gcdh.de/Utu> rdf:type owl:NamedIndividual ,
+                                       <http://teaching.gcdh.de/Freund> ;
+                              <http://teaching.gcdh.de/istFreundVon> <http://teaching.gcdh.de/Dumuzi> ;
+                              <http://teaching.gcdh.de/Geschlecht> "male"^^xsd:string ,
+                                                                   "männlich"^^xsd:string ;
+                              <http://teaching.gcdh.de/WikidataID> "Q526992"^^xsd:string ;
+                              rdfs:label "Utu" .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
