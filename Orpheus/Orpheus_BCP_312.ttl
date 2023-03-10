@@ -1,0 +1,108 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_BCP_312#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_BCP_312> .
+
+<http://http://teaching.gcdh.de/Orpheus_BCP_312> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/hatVolkszugehörigkeit
+<http://teaching.gcdh.de/hatVolkszugehörigkeit> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Volk> ;
+                                           skos:altLabel "hasNationalConsciousness"@en ;
+                                           rdfs:label "hatVolkszugehörigkeit"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range xsd:string ;
+                                           skos:altLabel "gender"@en ;
+                                           rdfs:label "Geschlecht"@de .
+
+
+###  http://teaching.gcdh.de/Attribut
+<http://teaching.gcdh.de/Attribut> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range xsd:string ;
+                                           skos:altLabel "attribute"@en ;
+                                           rdfs:label "Attribut"@de .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "WikidataID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "person"@en ;
+                                           rdfs:label "Person"@de .
+
+
+###  http://teaching.gcdh.de/Sänger
+<http://teaching.gcdh.de/Sänger> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "singer"@de ;
+                                           rdfs:label "Sänger"@de .
+
+
+###  http://teaching.gcdh.de/Personengruppe
+<http://teaching.gcdh.de/Personengruppe> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "group of people"@en ;
+                                           rdfs:label "Personengruppe"@de .
+
+
+###  http://teaching.gcdh.de/Volk
+<http://teaching.gcdh.de/Volk> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Personengruppe> ;
+                                           skos:altLabel "people"@en ;
+                                           rdfs:label "Volk"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Orpheus
+<http://teaching.gcdh.de/Orpheus> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Sänger> ;
+                                           <http://teaching.gcdh.de/hatVolkszugehörigkeit> <http://teaching.gcdh.de/Thraker> ;
+                                           <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                           <http://teaching.gcdh.de/Attribut> "göttlich inspiriert"^^xsd:string ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q174353"^^xsd:string ;
+                                           rdfs:label "Orpheus" .
+
+
+###  http://teaching.gcdh.de/Thraker
+<http://teaching.gcdh.de/Thraker> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Volk> ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q144964"^^xsd:string ;
+                                           rdfs:label "Thraker" .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi

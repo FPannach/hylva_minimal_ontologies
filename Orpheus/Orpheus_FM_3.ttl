@@ -1,0 +1,172 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_FM_3#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_FM_3> .
+
+<http://http://teaching.gcdh.de/Orpheus_FM_3> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/hatEmotionaleBeziehung
+<http://teaching.gcdh.de/hatEmotionaleBeziehung> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                          rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                          rdfs:range <http://teaching.gcdh.de/Person> ;
+                                          skos:altLabel "hasEmotionalRelationship"@en ;
+                                          rdfs:label "hatEmotionaleBeziehung"@de .
+
+
+###  http://teaching.gcdh.de/istEhefrauVon
+<http://teaching.gcdh.de/istEhefrauVon> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/istEhepartner> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Ehefrau> ;
+                                           rdfs:range <http://teaching.gcdh.de/Ehemann> ;
+                                           skos:altLabel "isWifeOf"@en ;
+                                           rdfs:label "istEhefrauVon"@de .
+
+
+###  http://teaching.gcdh.de/istEhepartner
+<http://teaching.gcdh.de/istEhepartner> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/hatFamiliäreBeziehung> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Ehepartner> ;
+                                           rdfs:range <http://teaching.gcdh.de/Ehepartner> ;
+                                           skos:altLabel "isSpouseOf"@en ;
+                                           rdfs:label "istEhepartner"@de .
+
+
+###  http://teaching.gcdh.de/wirdGeliebtVon
+<http://teaching.gcdh.de/wirdGeliebtVon> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/hatEmotionaleBeziehung> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "isLovedBy"@en ;
+                                           rdfs:label "wirdGeliebtVon"@de .
+
+
+###  http://teaching.gcdh.de/istEhemannVon
+<http://teaching.gcdh.de/istEhemannVon> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/istEhepartner> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Ehemann> ;
+                                           rdfs:range <http://teaching.gcdh.de/Ehefrau> ;
+                                           skos:altLabel "isHusbandOf"@en ;
+                                           rdfs:label "istEhemannVon"@de .
+
+
+###  http://teaching.gcdh.de/hatFamiliäreBeziehung
+<http://teaching.gcdh.de/hatFamiliäreBeziehung> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                          rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                          rdfs:range <http://teaching.gcdh.de/Person> ;
+                                          skos:altLabel "hasFamilyRelationship"@en ;
+                                          rdfs:label "hatFamiliäreBeziehung"@de .
+
+
+###  http://teaching.gcdh.de/liebt
+<http://teaching.gcdh.de/liebt> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf <http://teaching.gcdh.de/hatEmotionaleBeziehung> ;
+                                          rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                          rdfs:range <http://teaching.gcdh.de/Person> ;
+                                          skos:altLabel "loves"@en ;
+                                          rdfs:label "liebt"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "WikidataID" .
+
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range xsd:string ;
+  				           skos:altLabel "gender"@en ;
+                                           rdfs:label "Geschlecht"@de .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Ehepartner
+<http://teaching.gcdh.de/Ehepartner> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "spouse"@en ;
+                                           rdfs:label "Ehepartner"@de .
+
+
+###  http://teaching.gcdh.de/Hirte
+<http://teaching.gcdh.de/Hirte> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                          skos:altLabel "shepherd"@en ;
+                                          rdfs:label "Hirte"@de .
+
+
+###  http://teaching.gcdh.de/Ehefrau
+<http://teaching.gcdh.de/Ehefrau> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Ehepartner> ;
+                                           skos:altLabel "wife"@en ;
+                                           rdfs:label "Ehefrau"@de .
+
+
+###  http://teaching.gcdh.de/Ehemann
+<http://teaching.gcdh.de/Ehemann> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Ehepartner> ;
+                                           skos:altLabel "husband"@en ;
+                                           rdfs:label "Ehemann"@de .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                          rdfs:subClassOf owl:Thing ;
+                                          skos:altLabel "person"@en ;
+                                          rdfs:label "Person"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Aristeus
+<http://teaching.gcdh.de/Aristeus> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Hirte> ;
+                                           <http://teaching.gcdh.de/liebt> <http://teaching.gcdh.de/Eurydike> ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q392435"^^xsd:string ;
+                                           <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                           rdfs:label "Aristeus" .
+
+
+###  http://teaching.gcdh.de/Orpheus
+<http://teaching.gcdh.de/Orpheus> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Ehemann> ;
+                                           <http://teaching.gcdh.de/istEhemannVon> <http://teaching.gcdh.de/Eurydike> ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q174353"^^xsd:string ;
+                                           <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                           rdfs:label "Orpheus" .
+
+
+###  http://teaching.gcdh.de/Eurydike
+<http://teaching.gcdh.de/Eurydike> rdf:type owl:NamedIndividual ,
+                                                   <http://teaching.gcdh.de/Ehefrau> ;
+                                          <http://teaching.gcdh.de/istEhefrauVon> <http://teaching.gcdh.de/Orpheus> ;
+                                          <http://teaching.gcdh.de/wirdGeliebtVon> <http://teaching.gcdh.de/Aristeus> ;
+                                          <http://teaching.gcdh.de/WikidataID> "Q208588"^^xsd:string ;
+                                          <http://teaching.gcdh.de/Geschlecht> "weiblich"^^xsd:string ;
+                                          skos:altLabel "Eurydice"@en ;
+                                          rdfs:label "Eurydike" .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi

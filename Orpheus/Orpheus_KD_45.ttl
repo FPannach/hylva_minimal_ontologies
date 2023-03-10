@@ -1,0 +1,419 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_KD_45#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_KD_45> .
+
+<http://http://teaching.gcdh.de/Orpheus_KD_45> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/gefallen
+<http://teaching.gcdh.de/gefallen> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Kunst> ,
+                                                                     <http://teaching.gcdh.de/Personengruppe> ,
+                                                                     <http://teaching.gcdh.de/Person> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Kunst> ,
+                                                                    <http://teaching.gcdh.de/Personengruppe> ,
+                                                                    <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "enjoy"@en ;
+                                                         rdfs:label "gefallen"@de .
+
+
+###  http://teaching.gcdh.de/istNachfahreVon
+<http://teaching.gcdh.de/istNachfahreVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/hatFamiliäreBeziehung> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Nachfahre> ;
+                                                         rdfs:range <http://teaching.gcdh.de/label> ;
+                                                         skos:altLabel "isDescendantOf"@en ;
+                                                         rdfs:label "istNachfahreVon"@de .
+
+
+###  http://teaching.gcdh.de/istVorfahreVon
+<http://teaching.gcdh.de/istVorfahreVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/hatFamiliäreBeziehung> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/label> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Nachfahre> ;
+                                                         skos:altLabel "isAncestorOf"@en ;
+                                                         rdfs:label "istVorfahreVon"@de .
+
+
+###  http://teaching.gcdh.de/istEhepartner
+<http://teaching.gcdh.de/istEhepartner> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/hatFamiliäreBeziehung> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ehepartner> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Ehepartner> ;
+                                                         skos:altLabel "isSpouseOf"@en ;
+                                                         rdfs:label "istEhepartner"@de .
+
+
+###  http://teaching.gcdh.de/istSohnVon
+<http://teaching.gcdh.de/istSohnVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/istNachfahre> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Sohn> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Elternteil> ;
+                                                         skos:altLabel "isSonOf"@en ;
+                                                         rdfs:label "istSohnVon"@de .
+
+
+###  http://teaching.gcdh.de/findetGefallenAn
+<http://teaching.gcdh.de/findetGefallenAn> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/gefallen> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                                                     <http://teaching.gcdh.de/Person> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Kunst> ,
+                                                                    <http://teaching.gcdh.de/Personengruppe> ,
+                                                                    <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "enjoys"@en ;
+                                                         rdfs:label "findetGefallenAn"@de .
+
+
+###  http://teaching.gcdh.de/hatFamiliäreBeziehung
+<http://teaching.gcdh.de/hatFamiliäreBeziehung> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf owl:topObjectProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "hasFamilyRelationship"@en ;
+                                                         rdfs:label "hatFamiliäreBeziehung"@de .
+
+
+###  http://teaching.gcdh.de/istEhemannVon
+<http://teaching.gcdh.de/istEhemannVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/istEhepartner> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ehemann> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Ehefrau> ;
+                                                         skos:altLabel "isHusbandOf"@en ;
+                                                         rdfs:label "istEhemannVon"@de .
+
+
+###  http://teaching.gcdh.de/istVaterVon
+<http://teaching.gcdh.de/istVaterVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/istVorfahre> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Vater> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Kind> ;
+                                                         skos:altLabel "isFatherOf"@en ;
+                                                         rdfs:label "istVaterVon"@de .
+
+
+###  http://teaching.gcdh.de/istEhefrauVon
+<http://teaching.gcdh.de/istEhefrauVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/istEhepartner> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ehefrau> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Ehemann> ;
+                                                         skos:altLabel "isWifeOf"@en ;
+                                                         rdfs:label "istEhefrauVon"@de .
+
+
+###  http://teaching.gcdh.de/wirdBeherrschtVon
+<http://teaching.gcdh.de/wirdBeherrschtVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/herrschen> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ort> ,
+                                                                     <http://teaching.gcdh.de/Personengruppe> ,
+                                                                     <http://teaching.gcdh.de/Person> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Herrscher> ;
+                                                         skos:altLabel "isRuledBy"@en ;
+                                                         rdfs:label "wirdBeherrschtVon"@de .
+
+
+###  http://teaching.gcdh.de/herrschen
+<http://teaching.gcdh.de/herrschen> rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf owl:topObjectProperty ;
+                                                        rdfs:domain <http://teaching.gcdh.de/Ort> ,
+                                                                    <http://teaching.gcdh.de/Personengruppe> ,
+                                                                    <http://teaching.gcdh.de/Person> ;
+                                                        rdfs:range <http://teaching.gcdh.de/Ort> ,
+                                                                   <http://teaching.gcdh.de/Personengruppe> ,
+                                                                   <http://teaching.gcdh.de/Person> ;
+                                                        skos:altLabel "rule"@en ;
+                                                        rdfs:label "herrschen"@de .
+
+
+###  http://teaching.gcdh.de/herrschtÜber
+<http://teaching.gcdh.de/herrschtÜber> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/herrschen> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Herrscher> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Ort> ,
+                                                                    <http://teaching.gcdh.de/Personengruppe> ,
+                                                                    <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "rulesOver"@en ;
+                                                         rdfs:label "herrschtÜber"@de .
+
+
+###  http://teaching.gcdh.de/istMutterVon
+<http://teaching.gcdh.de/istMutterVon> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://teaching.gcdh.de/istVorfahre> ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Mutter> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Kind> ;
+                                                         skos:altLabel "isMotherOf"@en ;
+                                                         rdfs:label "istMutterVon"@de .
+
+
+###  http://teaching.gcdh.de/gefällt
+<http://teaching.gcdh.de/gefällt> rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf <http://teaching.gcdh.de/gefallen> ;
+                                                        rdfs:domain <http://teaching.gcdh.de/Kunst> ,
+                                                                    <http://teaching.gcdh.de/Personengruppe> ,
+                                                                    <http://teaching.gcdh.de/Person> ;
+                                                        rdfs:range <http://teaching.gcdh.de/Personengruppe> ,
+                                                                   <http://teaching.gcdh.de/Person> ;
+                                                        skos:altLabel "isEnjoyedBy"@en ;
+                                                        rdfs:label "gefällt"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/PleiadesID
+<http://teaching.gcdh.de/PleiadesID> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:subPropertyOf owl:topDataProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ort> ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "PleiadesID" .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:subPropertyOf owl:topDataProperty ;
+                                                        rdfs:domain owl:Thing ;
+                                                        rdfs:range xsd:string ;
+                                                        rdfs:label "WikidataID" .
+
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:subPropertyOf owl:topDataProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                                         rdfs:range xsd:string ;
+                                                         skos:altLabel "gender"@en ;
+                                                         rdfs:label "Geschlecht"@de .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/label
+<http://teaching.gcdh.de/label> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "ancestor"@en ;
+                                                         rdfs:label "Vorfahre"@de .
+
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         skos:altLabel "location"@en ;
+                                                         rdfs:label "Ort"@de .
+
+
+###  http://teaching.gcdh.de/Kind
+<http://teaching.gcdh.de/Kind> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Nachfahre> ;
+                                                         skos:altLabel "child"@en ;
+                                                         rdfs:label "Kind"@de .
+
+
+###  http://teaching.gcdh.de/Volk
+<http://teaching.gcdh.de/Volk> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Personengruppe> ;
+                                                         skos:altLabel "people"@en ;
+                                                         rdfs:label "Volk"@de .
+
+
+###  http://teaching.gcdh.de/Kunst
+<http://teaching.gcdh.de/Kunst> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         skos:altLabel "arts"@en ;
+                                                         rdfs:label "Kunst"@de .
+
+
+###  http://teaching.gcdh.de/Elternteil
+<http://teaching.gcdh.de/Elternteil> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/label> ;
+                                                         skos:altLabel "parent"@en ;
+                                                         rdfs:label "Elternteil"@de .
+
+
+###  http://teaching.gcdh.de/Ehepartner
+<http://teaching.gcdh.de/Ehepartner> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "spouse"@en ;
+                                                         rdfs:label "Ehepartner"@de .
+
+
+###  http://teaching.gcdh.de/Mutter
+<http://teaching.gcdh.de/Mutter> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Elternteil> ;
+                                                         skos:altLabel "mother"@en ;
+                                                         rdfs:label "Mutter"@de .
+
+
+###  http://teaching.gcdh.de/Ehefrau
+<http://teaching.gcdh.de/Ehefrau> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Ehepartner> ;
+                                                         skos:altLabel "wife"@en ;
+                                                         rdfs:label "Ehefrau"@de .
+
+
+###  http://teaching.gcdh.de/Personengruppe
+<http://teaching.gcdh.de/Personengruppe> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         skos:altLabel "group of people"@en ;
+                                                         rdfs:label "Personengruppe"@de .
+
+
+###  http://teaching.gcdh.de/Sohn
+<http://teaching.gcdh.de/Sohn> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Kind> ;
+                                                         skos:altLabel "son"@en ;
+                                                         rdfs:label "Sohn"@de .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         skos:altLabel "person"@en ;
+                                                         rdfs:label "Person"@de .
+
+
+###  http://teaching.gcdh.de/Musik
+<http://teaching.gcdh.de/Musik> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Kunst> ;
+                                                         skos:altLabel "music"@en ;
+                                                         rdfs:label "Musik"@de .
+
+
+###  http://teaching.gcdh.de/Herrscher
+<http://teaching.gcdh.de/Herrscher> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "ruler"@en ;
+                                                         rdfs:label "Herrscher"@de .
+
+
+###  http://teaching.gcdh.de/Nachfahre
+<http://teaching.gcdh.de/Nachfahre> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                                         skos:altLabel "descendant"@en ;
+                                                         rdfs:label "Nachfahre"@de .
+
+
+###  http://teaching.gcdh.de/Vater
+<http://teaching.gcdh.de/Vater> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://teaching.gcdh.de/Elternteil> ;
+                                                        skos:altLabel "father"@en ;
+                                                        rdfs:label "Vater"@de .
+
+
+###  http://teaching.gcdh.de/Ehemann
+<http://teaching.gcdh.de/Ehemann> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://teaching.gcdh.de/Ehepartner> ;
+                                                        skos:altLabel "husband"@en ;
+                                                        rdfs:label "Ehemann"@de .
+
+
+###  http://teaching.gcdh.de/Region
+<http://teaching.gcdh.de/Region> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                                        skos:altLabel "region"@en ;
+                                                        rdfs:label "Region"@de .
+
+
+###  http://teaching.gcdh.de/Muse
+<http://teaching.gcdh.de/Muse> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://teaching.gcdh.de/Person> ;
+                                                        skos:altLabel "muse"@en ;
+                                                        rdfs:label "Muse"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Makedonier
+<http://teaching.gcdh.de/Makedonier> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Volk> ;
+                                                         <http://teaching.gcdh.de/wirdBeherrschtVon> <http://teaching.gcdh.de/Orpheus> ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q576065"^^xsd:string ;
+                                                         rdfs:label "Makedonier"@de .
+
+
+###  http://teaching.gcdh.de/Oiagros
+<http://teaching.gcdh.de/Oiagros> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Vater> ;
+                                                         <http://teaching.gcdh.de/istVaterVon> <http://teaching.gcdh.de/Orpheus> ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q1539620"^^xsd:string ;
+                                                         <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                                         rdfs:label "Oiagros" .
+
+
+###  http://teaching.gcdh.de/Orpheus
+<http://teaching.gcdh.de/Orpheus> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Sohn> ,
+                                                                  <http://teaching.gcdh.de/Herrscher> ,
+                                                                  <http://teaching.gcdh.de/Ehemann> ;
+                                                         <http://teaching.gcdh.de/istSohnVon> <http://teaching.gcdh.de/Oiagros> ,
+                                                                                                                  <http://teaching.gcdh.de/Kalliope> ;
+                                                         <http://teaching.gcdh.de/istEhemannVon> <http://teaching.gcdh.de/Eurydike> ;
+                                                         <http://teaching.gcdh.de/herrschtÜber> <http://teaching.gcdh.de/Makedonier> ,
+                                                                                                                  <http://teaching.gcdh.de/Land_der_Odrysier> ;
+                                                         <http://teaching.gcdh.de/gefällt> <http://teaching.gcdh.de/Volksmenge> ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q174353"^^xsd:string ;
+                                                         <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                                         rdfs:label "Orpheus" .
+
+
+###  http://teaching.gcdh.de/Land_der_Odrysier
+<http://teaching.gcdh.de/Land_der_Odrysier> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Region> ;
+                                                         <http://teaching.gcdh.de/wirdBeherrschtVon> <http://teaching.gcdh.de/Orpheus> ;
+                                                         <http://teaching.gcdh.de/PleiadesID> 216906 ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q870517"^^xsd:string ;
+                                                         skos:altLabel "land of the Odrysians"@en ;
+                                                         rdfs:label "Land der Odrysier"@de .
+
+
+###  http://teaching.gcdh.de/Kalliope
+<http://teaching.gcdh.de/Kalliope> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Mutter> ,
+                                                                  <http://teaching.gcdh.de/Muse> ;
+                                                         <http://teaching.gcdh.de/istMutterVon> <http://teaching.gcdh.de/Orpheus> ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q103975"^^xsd:string ;
+                                                         <http://teaching.gcdh.de/Geschlecht> "weiblich"^^xsd:string ;
+                                                         skos:altLabel "Calliope"@en ;
+                                                         rdfs:label "Kalliope"@de .
+
+
+###  http://teaching.gcdh.de/Orpheus_Musik
+<http://teaching.gcdh.de/Orpheus_Musik> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Musik> ;
+                                                         <http://teaching.gcdh.de/gefällt> <http://teaching.gcdh.de/Volksmenge> ;
+                                                         skos:altLabel "Orpheus' music"@en ;
+                                                         rdfs:label "Orpheus Musik"@de .
+
+
+###  http://teaching.gcdh.de/Volksmenge
+<http://teaching.gcdh.de/Volksmenge> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Personengruppe> ;
+                                                         <http://teaching.gcdh.de/findetGefallenAn> <http://teaching.gcdh.de/Orpheus> ,
+                                                                                                                  <http://teaching.gcdh.de/Orpheus_Musik> ;
+                                                         skos:altLabel "crowd of people"@en ;
+                                                         rdfs:label "Volksmenge"@de .
+
+
+###  http://teaching.gcdh.de/Eurydike
+<http://teaching.gcdh.de/Eurydike> rdf:type owl:NamedIndividual ,
+                                                                 <http://teaching.gcdh.de/Ehefrau> ;
+                                                        <http://teaching.gcdh.de/istEhefrauVon> <http://teaching.gcdh.de/Orpheus> ;
+                                                        <http://teaching.gcdh.de/WikidataID> "Q208588"^^xsd:string ;
+                                                        <http://teaching.gcdh.de/Geschlecht> "weiblich"^^xsd:string ;
+                                                        skos:altLabel "Eurydice"@en ;
+                                                        rdfs:label "Eurydike"@de .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi

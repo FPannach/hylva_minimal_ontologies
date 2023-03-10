@@ -1,0 +1,649 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<Orpheus> rdf:type skos:ConceptScheme ;
+skos:prefLabel "Orpheus und Eurydike"@de ;
+dct:title "Orpheus und Eurydike"@de ;
+dct:description "Vokabular zu Ontologien der Hylemsequenzen von Orpheus und Eurydike"@de .
+
+<Kunst> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Kunst"@de ;
+  skos:altLabel "arts"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q2018526> ;
+  skos:definition """Überbegriff für bildende und darstellende Kunst, Literatur und Musik"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<Musik> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Musik"@de ;
+  skos:altLabel "music"@en ;
+  skos:broader <Kunst> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q638> ;
+  skos:definition """Kunstgattung, die durch die Organisation von Tönen, Klängen und Geräuschen definiert ist"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Gesang> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Gesang"@de ;
+  skos:altLabel "vocal performance"@en ;
+  skos:broader <Musik> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q105245071> ;
+  skos:definition """Vortrag von Musik durch Nutzung der menschlichen Stimme"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Ort> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Ort"@de ;
+  skos:altLabel "location"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q17334923> ;
+  skos:definition """Region, Ortschaft oder Platz, der lokalisierbar ist und an dem sich jemand befinden oder etwas geschehen kann"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<MythologischerOrt> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Mythologischer Ort"@de ;
+  skos:altLabel "mythical place"@en ;
+  skos:broader <Ort> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q24334893> ;
+  skos:definition """Ort, der nur in der Mythologie existiert"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Orakelstaette> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Orakelstätte"@de ;
+  skos:altLabel "oracle site"@en ;
+  skos:broader <Ort> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q217123> ;
+  skos:definition """Ort, an dem Weissagungen verkündet werden"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Region> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Region"@de ;
+  skos:altLabel "geographic region"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q82794> ;
+  skos:broader <Ort> ;
+  skos:definition """Gebiet, das durch physische (z.B. Berge, Flüsse) und umweltspezifische (z.B. Klima) oder durch Menschen geschaffene Charakteristika (Politik, Religion, Ökonomie etc.) abgegrenzt ist"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Stadt> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Stadt"@de ;
+  skos:altLabel "city"@en ;
+  skos:altLabel "town"@en ;
+  skos:broader <Ort> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q7930989> ;
+  skos:definition """Größere Ansiedlung von Menschen"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Person> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Person"@de ;
+  skos:altLabel "person"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q215627> ;
+  skos:definition """Reales oder mythologisches Individuum, das durch bestimmte Eigenschaften gekennzeichnet ist"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<Ehepartner> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Ehepartner"@de ;
+  skos:altLabel "spouse"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q1196129> ;
+  skos:definition """Partner, die durch eine Eheschließlung oder ähnliche Art von Zeremonie in einer Lebensgemeinschaft miteinander verbunden sind"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Ehefrau> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Ehefrau"@de ;
+  skos:altLabel "wife"@en ;
+  skos:broader <Ehepartner> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q188830> ;
+  skos:definition """Weibliche Partnerin in einer Ehe oder ähnlichen Art von Lebensgemeinschaft"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Ehemann> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Ehemann"@de ;
+  skos:altLabel "husband"@en ;
+  skos:broader <Ehepartner> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q212878> ;
+  skos:definition """Männlicher Partner in einer Ehe oder ähnlichen Art von Lebensgemeinschaft"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Herrscher> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Herrscher"@de ;
+  skos:altLabel "ruler"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q1097498> ;
+  skos:definition """Machthabendes Oberhaupt eines Volkes oder Territoriums"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Koenig> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "König"@de ;
+  skos:altLabel "king"@en ;
+  skos:broader <Herrscher> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q12097> ;
+  skos:definition """Herrschertitel, der die Regentschaft über ein Königreich beschreibt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Hirte> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Hirte"@de ;
+  skos:altLabel "shepherd"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q12059906> ;
+  skos:definition """Person, die Nutztiere bewacht und versorgt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Muse> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Muse"@de ;
+  skos:altLabel "Muse"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q66016> ;
+  skos:definition """Bezeichnung für Göttinnen der Künste und der künstlerischen Inspiration"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Nachfahre> a skos:Concept, owl:Class ;
+  skos:prefLabel "Nachfahre"@de ;
+  skos:altLabel "descendant"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q183905> ;
+  skos:definition """Person, die in gerader Linie von einer anderen Person abstammt (Kind, Enkel, Urenkel etc.)"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Kind> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Kind"@de ;
+  skos:altLabel "child"@en ;
+  skos:broader <Nachfahre> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q29514218> ;
+  skos:definition """Direkter weiblicher oder männlicher Nachfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Sohn> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Sohn"@de ;
+  skos:altLabel "son"@en ;
+  skos:broader <Kind> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q177232> ;
+  skos:definition """Direkter männlicher Nachfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Tochter> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Tochter"@de ;
+  skos:altLabel "daughter"@en ;
+  skos:broader <Kind> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q308194> ;
+  skos:definition """Direkter weiblicher Nachfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Sänger> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Sänger"@de ;
+  skos:altLabel "singer"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q177220> ;
+  skos:definition """Person, die mit ihrer Stimme Musik vorträgt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Untertan> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Untertan"@de ;
+  skos:altLabel "subject"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q1204348> ;
+  skos:definition """Person, die einem Herrscher untergeordnet ist"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Vorfahre> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Vorfahre"@de ;
+  skos:altLabel "ancestor"@en ;
+  skos:broader <Person> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q402152> ;
+  skos:definition """Person, von der eine andere Person in gerader Linie abstammt (Eltern, Großeltern, Urgroßeltern etc.)"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Elternteil> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Elternteil"@de ;
+  skos:altLabel "parent"@en ;
+  skos:broader <Vorfahre> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q7566> ;
+  skos:definition """Direkter weiblicher oder männlicher Vorfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Mutter> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Mutter"@de ;
+  skos:altLabel "mother"@en ;
+  skos:broader <Elternteil> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q7560> ;
+  skos:definition """Direkter weiblicher Vorfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Vater> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Vater"@de ;
+  skos:altLabel "father"@en ;
+  skos:broader <Elternteil> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q7565> ;
+  skos:definition """Direkter männlicher Vorfahre einer Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Personengruppe> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Personengruppe"@de ;
+  skos:altLabel "group of people"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q16334295> ;
+  skos:definition """Mehrere Menschen, die sich aufgrund eines gemeinsamen Charakteristikums zu einer Gruppe zuordnen lassen"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<Volk> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Volk"@de ;
+  skos:altLabel "people"@en ;
+  skos:broader <Personengruppe> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q2472587> ;
+  skos:definition """Gruppe von Menschen, die aufgrund kultureller oder politischer Gemeinsamkeiten miteinander verbunden sind"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Zuhoerer> rdf:type skos:Concept, owl:Class ;
+  skos:prefLabel "Zuhörer"@de ;
+  skos:altLabel "audience"@en ;
+  skos:broader <Personengruppe> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q211198> ;
+  skos:definition """Gruppe von Menschen, die einer Rede oder musikalischen Aufführung zuhört"""@de ;
+  skos:inScheme <Orpheus> .
+
+<ausueben> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "ausüben"@de ;
+  skos:altLabel "practice"@en ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q30028999> ;
+  rdfs:domain <Kunst> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Ausübung eines Berufes oder einer Kunstfertigkeit (z.B. Gesang oder das Spielen eines Musikinstruments)"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<wirdAusgeuebtVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "wirdAusgeübtVon"@de ;
+  skos:altLabel "isPracticedBy"@en ;
+  skos:broader <ausueben> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P3095> ;
+  rdfs:domain <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Ein Beruf oder eine Kunstfertigkeit (z.B. Gesang oder das Spielen eines Musikinstruments) wird von einer Person ausgeübt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<uebtAus> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "übtAus"@de ;
+  skos:altLabel "practices"@en ;
+  skos:broader <ausueben> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P106> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  skos:definition """Eine Person übt einen Beruf oder eine Kunstfertigkeit (z.B. Gesang oder das Spielen eines Musikinstruments) aus"""@de ;
+  skos:inScheme <Orpheus> .
+
+<bezaubern> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "bezaubern"@de ;
+  skos:altLabel "enchant"@en;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q65648550> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  skos:definition """Einen Zauber oder Reiz auf jemanden ausüben, jemanden entzücken und für sich einnehmen"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<bezaubert> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "bezaubert"@de ;
+  skos:altLabel "enchants"@en;
+  skos:broader <bezaubern> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q65648550> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Eine Person oder eine Kunst (wie z.B. Musik) übt einen Zauber oder Reiz auf jemand anderen aus und entzückt jemanden"""@de ;
+  skos:inScheme <Orpheus> .
+
+<wirdBezaubertVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "wirdBezaubertVon"@de ;
+  skos:altLabel "isEnchantedBy"@en;
+  skos:broader <bezaubern> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q65648550> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  skos:definition """Auf eine Person wird ein Zauber oder Reiz durch eine andere Person oder eine Kunst (wie z.B. Musik) ausgeübt, eine Person wird entzückt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istIn> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istIn"@de ;
+  skos:altLabel "isIn"@en ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P131> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P706> ;
+  rdfs:domain <Ort> ;
+  rdfs:range <Ort> ;
+  skos:definition """Lokalisierung eines Ortes in einer geographischen oder administrativen Region, einer Stadt oder einem anderen geographischen Ort"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<gefallen> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "gefallen"@de ;
+  skos:altLabel "enjoy"@en ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q47455763> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  skos:definition """Eine Kunst (wie z.B. Musik) oder eine Person als schön erachten, genießen, mögen"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<findetGefallenAn> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "findetGefallenAn"@de ;
+  skos:altLabel "enjoys"@en ;
+  skos:broader <gefallen> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q47455763> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Kunst> ;
+  skos:definition """Eine Person erachtet eine Kunst (wie z.B. Musik) oder eine andere Person als schön, genießt oder mag sie/ihn"""@de ;
+  skos:inScheme <Orpheus> .
+
+<gefaellt> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "gefällt"@de ;
+  skos:altLabel "isEnjoyedBy"@en ;
+  skos:broader <gefallen> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q47455763> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Kunst> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Eine Kunst (wie z.B. Musik) oder eine Person wird als schön erachtet, genossen, gemocht"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Aufenthaltsort> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "Aufenthaltsort"@de ;
+  skos:altLabel "residence"@en ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Property:P551> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Ort> ;
+  rdfs:range <Person> ;
+  rdfs:range <Ort> ;
+  skos:definition """Zeitweises Aufenthalten, Leben oder Wohnen an einem Ort"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<hatAufenthaltsort> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hatAufenthaltsort"@de ;
+  skos:altLabel "hasResidence"@en ;
+  skos:broader <Aufenthaltsort> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Property:P551> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Ort> ;
+  skos:definition """Eine Person oder Personengruppe hält sich zeitweise an einem Ort auf, lebt oder wohnt dort"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istAufenthaltsortVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istAufenthaltsortVon"@de ;
+  skos:altLabel "isResidenceOf"@en ;
+  skos:broader <Aufenthaltsort> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Property:P551> ;
+   rdfs:domain <Ort> ;
+  rdfs:range <Person> ;
+  skos:definition """Ein Ort dient dem zeitweisen Aufenthalt, Leben oder Wohnen für eine Person oder Personengruppe"""@de ;
+  skos:inScheme <Orpheus> .
+
+<hatEmotionaleBeziehung> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hatEmotionaleBeziehung"@de ;
+  skos:altLabel "hasEmotionalRelationship"@en ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Q1334052> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Q736922> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Person> ;
+  skos:definition """Emotionale Verbindung zwischen Personen (z.B. Eltern-Kind, Ehefrau-Ehemann)"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<liebt> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "liebt"@de ;
+  skos:altLabel "loves"@en ;
+  skos:broader <hatEmotionaleBeziehung> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q316> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Person> ;
+  skos:definition """Eine Person hat eine innige Zuneigung zu einer anderen Person"""@de ;
+  skos:inScheme <Orpheus> .
+
+<wirdGeliebtVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "wirdGeliebtVon"@de ;
+  skos:altLabel "isLovedBy"@en ;
+  skos:broader <hatEmotionaleBeziehung> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q316> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Person> ;
+  skos:definition """Eine Person wird von einer anderen Person innig gemocht"""@de ;
+  skos:inScheme <Orpheus> .
+
+<hatFamiliaereBeziehung> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hatFamiliäreBeziehung"@de ;
+  skos:altLabel "hasFamilyRelationship"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P53> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Person> ;
+  skos:definition """Familiäre Beziehung durch Verwandtschaft oder Heirat"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<istEhepartner> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istEhepartner"@de ;
+  skos:altLabel "isSpouseOf"@en ;
+  skos:broader <hatFamiliaereBeziehung> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P26> ;
+  rdfs:domain <Ehepartner> ;
+  rdfs:range <Ehepartner> ;
+  skos:definition """Familiäre Beziehung zwischen Ehepartnern"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istEhefrauVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istEhefrauVon"@de ;
+  skos:altLabel "isWifeOf"@en ;
+  skos:broader <istEhepartner> ;
+  skos:broadMatch <https://www.wikidata.org/wiki/Property:P26> ;
+  rdfs:domain <Ehefrau> ;
+  rdfs:range <Ehemann> ;
+  skos:definition """Familiäre Beziehung zwischen Ehefrau und Ehemann"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istEhemannVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istEhemannVon"@de ;
+  skos:altLabel "isHusbandOf"@en ;
+  skos:broader <istEhepartner> ;
+  skos:broadMatch <https://www.wikidata.org/wiki/Property:P26> ;
+  rdfs:domain <Ehemann> ;
+  rdfs:range <Ehefrau> ;
+  skos:definition """Familiäre Beziehung zwischen Ehemann und Ehefrau"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istNachfahreVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istNachfahreVon"@de ;
+  skos:altLabel "isDescendantOf"@en ;
+  skos:broader <hatFamiliaereBeziehung> ;
+  skos:broadMatch <https://www.wikidata.org/wiki/Property:P1038> ;
+  rdfs:domain <Nachfahre> ;
+  rdfs:range <Vorfahre> ;
+  skos:definition """Familiäre Beziehung zwischen Nachfahren und ihren Vorfahren"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istSohnVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istSohnVon"@de ;
+  skos:altLabel "isSonOf"@en ;
+  skos:broader <istNachfahreVon> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P25> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P22> ;
+  rdfs:domain <Sohn> ;
+  rdfs:range <Elternteil> ;
+  skos:definition """Familiäre Beziehung zwischen einem direkten männlichen Nachfahren und seinen Eltern"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istTochterVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istTochterVon"@de ;
+  skos:altLabel "isDaughterOf"@en ;
+  skos:broader <istNachfahreVon> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P25> ;
+  skos:narrowMatch <https://www.wikidata.org/wiki/Property:P22> ;
+  rdfs:domain <Tochter> ;
+  rdfs:range <Elternteil> ;
+  skos:definition """Familiäre Beziehung zwischen einer direkten weiblichen Nachfahrin und ihren Eltern"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istVorfahreVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istVorfahreVon"@de ;
+  skos:altLabel "isAncestorOf"@en ;
+  skos:broader <hatFamiliaereBeziehung> ;
+  skos:broadMatch <https://www.wikidata.org/wiki/Property:P1038> ;
+  rdfs:domain <Vorfahre> ;
+  rdfs:range <Nachfahre> ;
+  skos:definition """Familiäre Beziehung zwischen Vorfahren und ihren Nachfahren"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istMutterVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istMutterVon"@de ;
+  skos:altLabel "isMotherOf"@en ;
+  skos:broader <istVorfahreVon> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P25> ;
+  rdfs:domain <Mutter> ;
+  rdfs:range <Kind> ;
+  skos:definition """Familiäre Beziehung zwischen einer Mutter und ihren Kindern"""@de ;
+  skos:inScheme <Orpheus> .
+
+<istVaterVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "istVaterVon"@de ;
+  skos:altLabel "isFatherOf"@en ;
+  skos:broader <istVorfahreVon> ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P22> ;
+  rdfs:domain <Vater> ;
+  rdfs:range <Kind> ;
+  skos:definition """Familiäre Beziehung zwischen einem Vater und seinen Kindern"""@de ;
+  skos:inScheme <Orpheus> . 
+
+<hatVolkszugehoerigkeit> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hatVolkszugehörigkeit"@de ;
+  skos:altLabel "hasNationalConsciousness"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q2532383> ;
+  rdfs:domain <Person> ;
+  rdfs:range <Volk> ;
+  skos:definition """Zugehörigkeit einer Person zu einem Volk oder einer Volksgruppe"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<herrschen> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "herrschen"@de ;
+  skos:altLabel "rule"@en ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q4825937> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Ort> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Ort> ;
+  skos:definition """Ausübung von Autorität durch einen Herrscher über seine Untertanen oder ein Territorium"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<herrschtUeber> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "herrschtÜber"@de ;
+  skos:altLabel "rulesOver"@en ;
+  skos:broader <herrschen> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q4825937> ;
+  rdfs:domain <Herscher> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  rdfs:range <Ort> ;
+  skos:definition """Ein Herrscher übt Autorität über seine Untertanen oder ein Territorium aus"""@de ;
+  skos:inScheme <Orpheus> . 
+
+<wirdBeherrschtVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "wirdBeherrschtVon"@de ;
+  skos:altLabel "isRuledBy"@en ;
+  skos:broader <herrschen> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q4825937> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:domain <Ort> ;
+  rdfs:range <Herrscher> ;
+  skos:definition """Untertanen oder ein Territorium werden von einem Herrscher autoritär verwaltet"""@de ;
+  skos:inScheme <Orpheus> .
+
+<hueten> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hüten"@de ;
+  skos:altLabel "guard"@en ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q851598> ;
+  rdfs:domain <Ort> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Ort> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Bewachen und Schützen eines Ortes oder Objektes oder von Personen oder Tieren"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<huetet> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "hütet"@de ;
+  skos:altLabel "guards"@en ;
+  skos:broader <hueten> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q851598> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Ort> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Jemand bewacht und schützt einen Ort, ein Objekt, Personen oder Tiere"""@de ;
+  skos:inScheme <Orpheus> .
+
+<wirdGehuetetVon> rdf:type skos:Concept, owl:ObjectProperty ;
+  skos:prefLabel "wirdGehütetVon"@de ;
+  skos:altLabel "isGuardedBy"@en ;
+  skos:broader <hueten> ;
+  skos:closeMatch <https://www.wikidata.org/wiki/Q851598> ;
+  rdfs:domain <Ort> ;
+  rdfs:domain <Person> ;
+  rdfs:domain <Personengruppe> ;
+  rdfs:range <Person> ;
+  rdfs:range <Personengruppe> ;
+  skos:definition """Ein Ort, Objekt, Personen oder Tiere werden bewacht und geschützt"""@de ;
+  skos:inScheme <Orpheus> .
+
+<Alias> rdf:type skos:Concept, owl:DataProperty ;
+  skos:prefLabel "Alias"@de ;
+  skos:altLabel "alias"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q113627911> ;
+  rdfs:domain <owl:Thing> ;
+  skos:definition """Alternativer Name für eine Sache oder eine Person"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<Attribut> rdf:type skos:Concept, owl:DataProperty ;
+  skos:prefLabel "Attribut"@de ;
+  skos:altLabel "attribute"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q937228> ;
+  rdfs:domain <owl:Thing> ;
+  skos:definition """Beschreibendes Merkmal, das eine Sache oder eine Person charakterisiert"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<Geschlecht> rdf:type skos:Concept, owl:DataProperty ;
+  skos:prefLabel "Geschlecht"@de ;
+  skos:altLabel "gender"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q48277> ;
+  rdfs:domain <Person> ;
+  skos:definition """Angabe des bei der Geburt zugewiesenen Geschlechts oder der Geschlechtsidentität einer Person"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<PleiadesID> rdf:type skos:Concept, owl:DataProperty ;
+  skos:prefLabel "PleaidesID"@de ;
+  skos:altLabel "PleaidesID"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Property:P1584> ;
+  rdfs:domain <Ort> ;
+  skos:definition """Identifikator für antike Orte, die im Online-Verzeichnis Pleiades https://pleiades.stoa.org/ zu finden sind"""@de ;
+  skos:topConceptOf <Orpheus> .
+
+<WikidataID> rdf:type skos:Concept, owl:DataProperty ;
+  skos:prefLabel "WikidataID"@de ;
+  skos:altLabel "WikidataID"@en ;
+  skos:exactMatch <https://www.wikidata.org/wiki/Q43649390> ;
+  rdfs:domain <owl:Thing> ;
+  skos:definition """Identifikator für ein Datenobjekt auf der Website Wikidata https://www.wikidata.org/"""@de ;
+  skos:topConceptOf <Orpheus> .

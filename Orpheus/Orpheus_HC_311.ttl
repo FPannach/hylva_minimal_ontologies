@@ -1,0 +1,122 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_HC_11#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_HC_11> .
+
+<http://http://teaching.gcdh.de/Orpheus_HC_11> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/hütet
+<http://teaching.gcdh.de/hütet> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/hüten> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Ort> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "guards"@en ;
+                                           rdfs:label "hütet"@de .
+
+
+###  http://teaching.gcdh.de/wirdGehütetVon
+<http://teaching.gcdh.de/wirdGehütetVon> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/hüten> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Ort> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "isGuardedBy"@en ;
+                                           rdfs:label "wirdGehütetVon"@de .
+
+
+###  http://teaching.gcdh.de/hüten
+<http://teaching.gcdh.de/hüten> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Ort> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Ort> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "guard"@en ;
+                                           rdfs:label "hüten"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range xsd:string ;
+                                           skos:altLabel "gender"@en ;
+                                           rdfs:label "Geschlecht"@de .
+
+
+###  http://teaching.gcdh.de/Attribut
+<http://teaching.gcdh.de/Attribut> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range xsd:string ;
+                                           skos:altLabel "attribute"@en ;
+                                           rdfs:label "Attribut"@de .
+
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain owl:Thing ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "WikidataID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "location"@en ;
+                                           rdfs:label "Ort"@de .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "person"@en ;
+                                           rdfs:label "Person"@de .
+
+
+###  http://teaching.gcdh.de/Mythologischer_Ort
+<http://teaching.gcdh.de/Mythologischer_Ort> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                          skos:altLabel "mythical place"@en ;
+                                          rdfs:label "Mythologischer Ort"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Kerberus
+<http://teaching.gcdh.de/Kerberus> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Person> ;
+                                           <http://teaching.gcdh.de/hütet> <http://teaching.gcdh.de/Totenreich> ;
+                                           <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                           <http://teaching.gcdh.de/Attribut> "grimmig"^^xsd:string ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q83496"^^xsd:string ;
+                                           skos:altLabel "Cerberus"@en ;
+                                           rdfs:label "Kerberus"@de .
+
+
+###  http://teaching.gcdh.de/Totenreich
+<http://teaching.gcdh.de/Totenreich> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Mythologischer_Ort> ;
+                                           <http://teaching.gcdh.de/wirdGehütetVon> <http://teaching.gcdh.de/Kerberus> ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q1521549"^^xsd:string ;
+                                           rdfs:label "Totenreich" .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi

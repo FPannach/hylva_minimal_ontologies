@@ -1,0 +1,91 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_P_9#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_P_9> .
+
+<http://http://teaching.gcdh.de/Orpheus_P_9> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/istIn
+<http://teaching.gcdh.de/istIn> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf owl:topObjectProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ort> ;
+                                                         rdfs:range <http://teaching.gcdh.de/Ort> ;
+                                                         skos:altLabel "isIn"@en ;
+                                                         rdfs:label "istIn"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:subPropertyOf owl:topDataProperty ;
+                                                         rdfs:domain owl:Thing ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "WikidataID" .
+
+
+###  http://teaching.gcdh.de/PleiadesID
+<http://teaching.gcdh.de/PleiadesID> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:subPropertyOf owl:topDataProperty ;
+                                                         rdfs:domain <http://teaching.gcdh.de/Ort> ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "PleiadesID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Orakelstätte
+<http://teaching.gcdh.de/Orakelstätte> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://teaching.gcdh.de/Ort> ;
+                                                        skos:altLabel "oracle site"@en ;
+                                                        rdfs:label "Orakelstätte"@de .
+
+
+###  http://teaching.gcdh.de/Ort
+<http://teaching.gcdh.de/Ort> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         skos:altLabel "location"@en ;
+                                                         rdfs:label "Ort"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Aornon
+<http://teaching.gcdh.de/Aornon> rdf:type owl:NamedIndividual ,
+                                                                  <http://teaching.gcdh.de/Ort> ;
+                                                         <http://teaching.gcdh.de/istIn> <http://teaching.gcdh.de/Thesprotien> ;
+                                                         <http://teaching.gcdh.de/WikidataID> "Q4778750"^^xsd:string ;
+                                                         rdfs:label "Aornon" .
+
+
+###  http://teaching.gcdh.de/Thesprotien
+<http://teaching.gcdh.de/Thesprotien> rdf:type owl:NamedIndividual ,
+                                                                 <http://teaching.gcdh.de/Ort> ;
+                                                        <http://teaching.gcdh.de/WikidataID> "Q7783458"^^xsd:string ;
+                                                        <http://teaching.gcdh.de/PleiadesID> 531117 ;
+                                                        rdfs:label "Thesprotien"^^xsd:string .
+
+
+###  http://teaching.gcdh.de/Totenorakel
+<http://teaching.gcdh.de/Totenorakel> rdf:type owl:NamedIndividual ,
+                                                                 <http://teaching.gcdh.de/Orakelstätte> ;
+                                                        <http://teaching.gcdh.de/istIn> <http://teaching.gcdh.de/Aornon> ,
+                                                                                                                 <http://teaching.gcdh.de/Thesprotien> ;
+                                                        rdfs:label "Totenorakel" .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi

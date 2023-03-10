@@ -1,0 +1,116 @@
+@prefix : <http://http://teaching.gcdh.de/Orpheus_MA_1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://http://teaching.gcdh.de/Orpheus_MA_1> .
+
+<http://http://teaching.gcdh.de/Orpheus_MA_1> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://teaching.gcdh.de/bezaubern
+<http://teaching.gcdh.de/bezaubern> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Personengruppe> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "enchant"@en;
+                                           rdfs:label "bezaubern"@de .
+
+
+###  http://teaching.gcdh.de/bezaubert
+<http://teaching.gcdh.de/bezaubert> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/bezaubern> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Personengruppe> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "enchants"@en;
+                                           rdfs:label "bezaubert"@de .
+
+
+###  http://teaching.gcdh.de/wirdbezaubertVon
+<http://teaching.gcdh.de/wirdbezaubertVon> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://teaching.gcdh.de/bezaubern> ;
+                                           rdfs:domain <http://teaching.gcdh.de/Personengruppe> ,
+                                                       <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range <http://teaching.gcdh.de/Personengruppe> ,
+                                                      <http://teaching.gcdh.de/Person> ;
+                                           skos:altLabel "isEnchantedBy"@en;
+                                           rdfs:label "wirdbezaubertVon"@de .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://teaching.gcdh.de/WikidataID
+<http://teaching.gcdh.de/WikidataID> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain owl:Thing ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "WikidataID" .
+
+
+###  http://teaching.gcdh.de/Geschlecht
+<http://teaching.gcdh.de/Geschlecht> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain <http://teaching.gcdh.de/Person> ;
+                                           rdfs:range xsd:string ;
+                                           skos:altLabel "gender"@en ;
+                                           rdfs:label "Geschlecht"@de .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://teaching.gcdh.de/Personengruppe
+<http://teaching.gcdh.de/Personengruppe> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "group of people"@en ;
+                                           rdfs:label "Personengruppe"@de .
+
+
+###  http://teaching.gcdh.de/Zuhörer
+<http://teaching.gcdh.de/Zuhörer> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://teaching.gcdh.de/Personengruppe> ;
+                                           skos:altLabel "audience"@en ;
+                                           rdfs:label "Zuhörer"@de .
+
+
+###  http://teaching.gcdh.de/Person
+<http://teaching.gcdh.de/Person> rdf:type owl:Class ;
+                                           rdfs:subClassOf owl:Thing ;
+                                           skos:altLabel "person"@en ;
+                                           rdfs:label "Person"@de .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://teaching.gcdh.de/Orpheus
+<http://teaching.gcdh.de/Orpheus> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Person> ;
+                                           <http://teaching.gcdh.de/bezaubert> <http://teaching.gcdh.de/Hörer_von_Orpheus_Musik> ;
+                                           <http://teaching.gcdh.de/WikidataID> "Q174353"^^xsd:string ;
+                                           <http://teaching.gcdh.de/Geschlecht> "männlich"^^xsd:string ;
+                                           rdfs:label "Orpheus" .
+
+
+###  http://teaching.gcdh.de/Hörer_von_Orpheus_Musik
+<http://teaching.gcdh.de/Hörer_von_Orpheus_Musik> rdf:type owl:NamedIndividual ,
+                                                    <http://teaching.gcdh.de/Zuhörer> ;
+                                           <http://teaching.gcdh.de/wirdbezaubertVon> <http://teaching.gcdh.de/Orpheus> ;
+                                           skos:altLabel "Orpheus' audience"@en ;
+                                           rdfs:label "Hörer von Orpheus Musik"@de .
+
+
+###  Generated by the OWL API (version 4.3.1) https://github.com/owlcs/owlapi
