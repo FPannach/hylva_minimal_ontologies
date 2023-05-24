@@ -38,5 +38,10 @@ Innana-Dumuzi-Eršema (BM 15821)         | Cohen (1981), Ershemma No. 165
 Innana-Dumuzi-Balaĝ (BE 30/1, 7)        | Fritz (2003), 131-132
 Dumuzi-Durtur-Eršema (CT 15, pl. 20-21) | Cohen (1981), Ershemma No. 88
 
+## License
+Unless otherwise specified, <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
+
+## Acknowledgements
+This work is funded by the DFG as part of the Myth-Research Group 2064 STRATA. The authors would like to thank Dr. Balbina Bäbler for her helpful insights and comments. 
 
