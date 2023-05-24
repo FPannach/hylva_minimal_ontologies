@@ -148,8 +148,8 @@
 ###  http://teaching.gcdh.de/Kind
 <http://teaching.gcdh.de/Kind> rdf:type owl:Class ;
                                            rdfs:subClassOf <http://teaching.gcdh.de/Nachfahre> ;
-                                           skos:altLabel "child" ;
-                                           rdfs:label "Kind" .
+                                           skos:altLabel "child"@en ;
+                                           rdfs:label "Kind"@de .
 
 
 ###  http://teaching.gcdh.de/Nachfahre
